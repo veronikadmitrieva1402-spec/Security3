@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: security-service
+  datasource:
+      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/SecurityCenter}
+      username: ${SPRING_DATASOURCE_USERNAME:postgres}
+      password: ${SPRING_DATASOURCE_PASSWORD:Veronika@2007}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+server:
+  port: 8081
+
+app:
+  jwt:
+    secret-base64: dGhpc2lzYXZlcnlzZWN1cmVzZWNyZXRrZXlmb3Jqd3RzaWduaW5nMjAyNA==
+    issuer: security-service
+    access_minutes: 15
+    refresh_days: 14
